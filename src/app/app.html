@@ -1,13 +1,15 @@
-<h1>Products</h1>
+<!-- <h1>Products</h1>
 
 <p *ngIf="loading()">Loading...</p>
 <p *ngIf="error()">{{ error() }}</p>
 
-<ul *ngIf="!loading() && !error()">
-  <li *ngFor="let product of products()">
+<div class="grid" *ngIf="!loading() && !error()">
+  <div class="card" *ngFor="let product of products()">
+    <p class="category">{{ product.category }}</p>
     <h3>{{ product.title }}</h3>
     <p>{{ product.description }}</p>
-    <small>{{ product.category }}</small>
-    <hr>
-  </li>
-</ul>
+
+  </div>
+</div> -->
+
+<app-job-board></app-job-board>

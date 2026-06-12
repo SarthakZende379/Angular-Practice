@@ -1,0 +1,28 @@
+<h1>Hacker News Jobs Board</h1>
+
+@if (loading()) {
+  <p>Loading...</p>
+}
+
+@if (error()) {
+  <p>{{ error() }}</p>
+}
+
+@if (!loading() && !error()) {
+  @for (job of jobs(); track job.id) {
+    <div class="card">
+      <h3>
+        @if (job.url) {
+          <a [href]="job.url" target="_blank">{{ job.title }}</a>
+        } @else {
+          {{ job.title }}
+        }
+      </h3>
+      <p>By {{ job.by }} &middot; {{ formatDate(job.time) }}</p>
+    </div>
+  }
+
+  @if (hasMore()) {
+    <button (click)="loadMore()">Load more jobs</button>
+  }
+}
