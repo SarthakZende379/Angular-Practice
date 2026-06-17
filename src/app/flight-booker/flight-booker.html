@@ -1,0 +1,22 @@
+<h2>Flight Booker</h2>
+
+<select [(ngModel)]="flightType">
+  <option value="one-way">One-way flight</option>
+  <option value="return">Return flight</option>
+</select>
+
+<br><br>
+
+<input type="date" [(ngModel)]="departureDate">
+
+<br><br>
+
+<div *ngIf="flightType === 'return'">
+  <input type="date" [(ngModel)]="returnDate">
+  <br><br>
+</div>
+
+<p *ngIf="error">{{ error }}</p>
+<p *ngIf="success">{{ success }}</p>
+
+<button (click)="onSubmit()">Submit</button>

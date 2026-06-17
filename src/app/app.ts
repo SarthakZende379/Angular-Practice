@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { JobBoard } from "./job-board/job-board";
 import { StarWarSearch } from './star-war-search/star-war-search';
 import { UserRegistration } from './user-registration/user-registration';
+import { FlightBooker } from './flight-booker/flight-booker';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, JobBoard, StarWarSearch, UserRegistration],
+  imports: [CommonModule, JobBoard, StarWarSearch, UserRegistration, FlightBooker ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
