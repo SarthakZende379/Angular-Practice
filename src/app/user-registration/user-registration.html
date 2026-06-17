@@ -1,0 +1,73 @@
+<h2>User Registration</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label>Username</label><br>
+    <input type="text" formControlName="username">
+    <small *ngIf="form.get('username')?.errors?.['required'] && form.get('username')?.touched">
+      Username is required and must be at least 3 characters long.
+    </small>
+    <small *ngIf="form.get('username')?.errors?.['minlength'] && form.get('username')?.touched">
+      Username is required and must be at least 3 characters long.
+    </small>
+    <small *ngIf="form.get('username')?.errors?.['usernameTaken']">
+      Username is already taken.
+    </small>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Email</label><br>
+    <input type="email" formControlName="email">
+    <small *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Please enter a valid email address.
+    </small>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Password</label><br>
+    <input type="password" formControlName="password">
+    <small *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      Password is required and must be at least 6 characters long.
+    </small>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Confirm Password</label><br>
+    <input type="password" formControlName="confirmPassword">
+    <small *ngIf="form.errors?.['passwordMismatch'] && form.get('confirmPassword')?.touched">
+      Passwords do not match.
+    </small>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Preferred Contact Method</label><br>
+    <select formControlName="contactMethod">
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+  </div>
+
+  <br>
+
+  <div>
+    <label>Phone Number</label><br>
+    <input type="text" formControlName="phone">
+    <small *ngIf="form.errors?.['phoneRequired'] && form.get('phone')?.touched">
+      Please provide at least one contact method.
+    </small>
+  </div>
+
+  <br>
+
+  <button type="submit" [disabled]="form.invalid || form.pending">Save</button>
+
+</form>

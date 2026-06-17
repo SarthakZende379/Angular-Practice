@@ -3,10 +3,13 @@ import { ProductService } from './services/product';
 import { Product } from './models/product';
 import { CommonModule } from '@angular/common';
 import { JobBoard } from "./job-board/job-board";
+import { StarWarSearch } from './star-war-search/star-war-search';
+import { UserRegistration } from './user-registration/user-registration';
+
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, JobBoard],
+  imports: [CommonModule, JobBoard, StarWarSearch, UserRegistration],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

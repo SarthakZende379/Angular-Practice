@@ -1,0 +1,17 @@
+<input [(ngModel)]="name" placeholder="character name">
+<button (click)="search()">Search</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Film</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let film of films()">
+      <td>{{ film.title }}</td>
+      <td>{{ film.release_date | slice:0:4 }}</td>
+    </tr>
+  </tbody>
+</table>
