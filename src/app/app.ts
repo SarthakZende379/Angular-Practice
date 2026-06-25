@@ -6,17 +6,19 @@ import { JobBoard } from "./job-board/job-board";
 import { StarWarSearch } from './star-war-search/star-war-search';
 import { UserRegistration } from './user-registration/user-registration';
 import { FlightBooker } from './flight-booker/flight-booker';
+import { Post } from './post/post';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, JobBoard, StarWarSearch, UserRegistration, FlightBooker ],
+  imports: [CommonModule, JobBoard, StarWarSearch, UserRegistration, FlightBooker, Post],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit {
 
   // signal boxes
+  title = 'products-app';
   products = signal<Product[]>([]);
   loading = signal(true);
   error = signal('');

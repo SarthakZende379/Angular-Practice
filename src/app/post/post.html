@@ -1,0 +1,9 @@
+<h2>List of post</h2>
+@for (post of posts(); track post.id) {
+  <h3 (click)="showComment(post.id)">{{post.id}} - {{post.title}}</h3>
+  @if (activePostId() === post.id) {
+    @for (comment of comments(); track comment.id) {
+      <h4>{{comment.id}} - {{comment.name}}</h4>
+    }
+  }
+}
